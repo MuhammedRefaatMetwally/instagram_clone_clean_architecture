@@ -10,7 +10,7 @@ Application is build with Clean Architecture of Robert C. Martin (Uncle Bob) TDD
 # App Features
 
 <ul dir="auto">
-<li>Instagram Mobile App UI</li>
+<li>Instagram Mobile App Responsive UI</li>
 <li>Email &amp; Password Authentication</li>
 <li>Upload Posts</li>
 <li>Display All Users Posts</li>
