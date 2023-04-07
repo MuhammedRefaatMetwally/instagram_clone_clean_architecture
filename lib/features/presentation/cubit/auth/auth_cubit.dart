@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/usecases/firebase_usecases/user/get_current_uid_usecase.dart';
@@ -16,7 +17,9 @@ class AuthCubit extends Cubit<AuthState> {
 
 
   AuthCubit(
-      {required this.isSignInUsecase, required this.signOutUsecase, required this.getCurrentUidUseCase}) : super(AuthInitial());
+      {required this.isSignInUsecase, required this.signOutUsecase, required this.getCurrentUidUseCase}) : super(AuthInitial()){
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,overlays: [SystemUiOverlay.top]);
+  }
 
   static AuthCubit i(BuildContext context)=>BlocProvider.of(context) ;
   Future<void> appStarted(BuildContext context) async{
