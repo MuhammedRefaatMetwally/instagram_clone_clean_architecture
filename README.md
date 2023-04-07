@@ -8,16 +8,20 @@ Application is build with Clean Architecture of Robert C. Martin (Uncle Bob) TDD
 
 
 # App Features
-Instagram Mobile App UI
-Email & Password Authentication
-Upload Posts
-Display All Users Posts
-Like & Comment on Posts + Replay to Comments
-Search Users
-See recently uploaded Posts on Search Page
-Follow + UnFollow
-Display User Posts, Followers & Following
-Sign Out User
+
+<ul dir="auto">
+<li>Instagram Mobile App UI</li>
+<li>Email &amp; Password Authentication</li>
+<li>Upload Posts</li>
+<li>Display All Users Posts</li>
+<li>Like &amp; Comment on Posts + Replay to Comments</li>
+<li>Search Users</li>
+<li>See recently uploaded Posts on Search Page</li>
+<li>Follow + UnFollow</li>
+<li>Display User Posts, Followers &amp; Following</li>
+<li>Sign Out User</li>
+</ul>
+
 
 
 # Feedback
