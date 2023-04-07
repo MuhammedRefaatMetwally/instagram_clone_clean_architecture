@@ -1,5 +1,5 @@
 name: insta_clone_clean_arc
-description: A new Flutter project.
+description: Instagram Clone Flutter - with Clean Architecture Firebase as backend (Full-Stack) is Underdevelopment.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
