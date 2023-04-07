@@ -1,16 +1,25 @@
-# insta_clone_clean_arc
+# Instagram Clone - Clean Architecture Flutter
 
-A new Flutter project.
+Instagram Clone Flutter - with Clean Architecture Firebase as backend (Full-Stack) is Underdevelopment.
 
-## Getting Started
+# Application Architecture
 
-This project is a starting point for a Flutter application.
+Application is build with Clean Architecture of Robert C. Martin (Uncle Bob) TDD pattern Clean Code + Maintainable
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# App Features
+Instagram Mobile App UI
+Email & Password Authentication
+Upload Posts
+Display All Users Posts
+Like & Comment on Posts + Replay to Comments
+Search Users
+See recently uploaded Posts on Search Page
+Follow + UnFollow
+Display User Posts, Followers & Following
+Sign Out User
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+# Feedback
+
+If you have any feedback, please reach out to me at muhammedrefaat2020@gmail.com .
