@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insta_clone_clean_arc/features/presentation/%20pages/profile/widgets/no_followers_widget.dart';
 import 'package:insta_clone_clean_arc/injection_container.dart' as di;
 import '../../../../core/constants/color.dart';
+import '../../../../core/constants/constans.dart';
+import '../../../../core/constants/page_constants.dart';
 import '../../../domain/entity/user/user_entity.dart';
 import '../../../domain/usecases/firebase_usecases/user/get_single_user_usecase.dart';
 import '../../widgets/profile_widget.dart';
@@ -15,10 +17,10 @@ class FollowersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: AppColors.backGroundColor,
       appBar: AppBar(
         title: const Text("Followers"),
-        backgroundColor: backGroundColor,
+        backgroundColor: AppColors.backGroundColor,
       ),
       body: Padding(
         padding:  EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 8.0.h),
@@ -55,7 +57,7 @@ class FollowersPage extends StatelessWidget {
                               ),
                             ),
                             sizeHor(8.w),
-                            Text("${singleUserData.username}", style: const TextStyle(color: primaryColor, fontSize: 15, fontWeight: FontWeight.w600),)
+                            Text("${singleUserData.username}", style: const TextStyle(color: AppColors.primaryColor, fontSize: 15, fontWeight: FontWeight.w600),)
                           ],
                         ),
                       );

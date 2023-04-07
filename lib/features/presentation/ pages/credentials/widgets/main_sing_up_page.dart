@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../../core/constants/color.dart';
+import '../../../../../core/constants/constans.dart';
+import '../../../../../core/constants/page_constants.dart';
 import '../../../../domain/entity/user/user_entity.dart';
 import '../../../cubit/credentials/credentials_cubit.dart';
 import '../../../widgets/button_container_widget.dart';
@@ -68,7 +70,7 @@ class _MainSignUpPageState extends State<MainSignUpPage> {
           Center(
               child: SvgPicture.asset(
                 "assets/ic_instagram.svg",
-                color: primaryColor,
+                color: AppColors.primaryColor,
               )),
           sizeVer(16.h),
           Center(
@@ -88,7 +90,7 @@ class _MainSignUpPageState extends State<MainSignUpPage> {
                       onPressed: selectImage,
                       icon: const Icon(
                         Icons.add_a_photo,
-                        color: blueColor,
+                        color: AppColors.blueColor,
                       ),
                     ))
               ],
@@ -117,7 +119,7 @@ class _MainSignUpPageState extends State<MainSignUpPage> {
           ),
           sizeVer(24.h),
           ButtonContainerWidget(
-            color: blueColor,
+            color: AppColors.blueColor,
             text: "Sign up",
             onTapListener: () {
               _signUpUser();
@@ -131,7 +133,7 @@ class _MainSignUpPageState extends State<MainSignUpPage> {
                Text(
                 "Please wait",
                 style: TextStyle(
-                    color: primaryColor,
+                    color:AppColors. primaryColor,
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w400),
               ),
@@ -145,7 +147,7 @@ class _MainSignUpPageState extends State<MainSignUpPage> {
             child: sizeVer(24.h),
           ),
           const Divider(
-            color: secondaryColor,
+            color: AppColors.secondaryColor,
           ),
           sizeVer(40.h),
           Row(
@@ -153,7 +155,7 @@ class _MainSignUpPageState extends State<MainSignUpPage> {
             children: [
               const Text(
                 "Already have an account? ",
-                style: TextStyle(color: primaryColor),
+                style: TextStyle(color: AppColors.primaryColor),
               ),
               InkWell(
                 onTap: () {
@@ -163,7 +165,7 @@ class _MainSignUpPageState extends State<MainSignUpPage> {
                 child: const Text(
                   "Sign In",
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: primaryColor),
+                      fontWeight: FontWeight.bold, color: AppColors.primaryColor),
                 ),
               ),
             ],

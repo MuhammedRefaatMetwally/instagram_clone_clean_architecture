@@ -9,6 +9,8 @@ import 'package:insta_clone_clean_arc/features/presentation/cubit/posts/posts_cu
 import 'package:insta_clone_clean_arc/injection_container.dart' as di;
 import 'package:intl/intl.dart';
 import '../../../../../core/constants/color.dart';
+import '../../../../../core/constants/constans.dart';
+import '../../../../../core/constants/page_constants.dart';
 import '../../../../data/models/bottom_modal_sheet/bottom_modal_sheet_model.dart';
 import '../../../../domain/entity/app_entity.dart';
 import '../../../../domain/entity/posts/post_entity.dart';
@@ -68,8 +70,8 @@ class _SinglePostCardWidgetState extends State<SinglePostCardWidget> {
                     sizeHor(8.w),
                     Text(
                       "${widget.post.username}",
-                      style: const TextStyle(
-                          color: primaryColor, fontWeight: FontWeight.bold),
+                      style:  const TextStyle(
+                          color: AppColors.primaryColor, fontWeight: FontWeight.bold),
                     )
                   ],
                 ),
@@ -91,7 +93,7 @@ class _SinglePostCardWidgetState extends State<SinglePostCardWidget> {
                       },
                       child: const Icon(
                         Icons.more_vert,
-                        color: primaryColor,
+                        color: AppColors.primaryColor,
                       ))
                   : const SizedBox()
             ],
@@ -145,7 +147,7 @@ class _SinglePostCardWidgetState extends State<SinglePostCardWidget> {
                       },
                       child: Icon(
                         widget.post.likes!.contains(_currentUid) ? Icons.favorite : Icons.favorite_outline,
-                        color: widget.post.likes!.contains(_currentUid) ? Colors.red : primaryColor,
+                        color: widget.post.likes!.contains(_currentUid) ? Colors.red : AppColors.primaryColor,
                       )),
                   sizeHor(8.h),
                   GestureDetector(
@@ -153,25 +155,25 @@ class _SinglePostCardWidgetState extends State<SinglePostCardWidget> {
                         Navigator.pushNamed(context, PageConst.commentPage, arguments: AppEntity(uid: _currentUid, postId: widget.post.postId));                      },
                       child: const Icon(
                         Feather.message_circle,
-                        color: primaryColor,
+                        color: AppColors.primaryColor,
                       )),
                   sizeHor(8.h),
                   const Icon(
                     Feather.send,
-                    color: primaryColor,
+                    color: AppColors.primaryColor,
                   ),
                 ],
               ),
               const Icon(
                 Icons.bookmark_border,
-                color: primaryColor,
+                color: AppColors.primaryColor,
               )
             ],
           ),
           sizeVer(8.h),
           Text(
             "${widget.post.totalLikes} likes",
-            style: const TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
+            style: const TextStyle(color: AppColors.primaryColor, fontWeight: FontWeight.bold),
           ),
           sizeVer(8.h),
           Row(
@@ -179,12 +181,12 @@ class _SinglePostCardWidgetState extends State<SinglePostCardWidget> {
               Text(
                 "${widget.post.username}",
                 style:
-                    const TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
+                    const TextStyle(color: AppColors.primaryColor, fontWeight: FontWeight.bold),
               ),
               sizeHor(8.h),
               Text(
                 "${widget.post.description}",
-                style: const TextStyle(color: primaryColor),
+                style: const TextStyle(color: AppColors.primaryColor),
               ),
             ],
           ),
@@ -202,13 +204,13 @@ class _SinglePostCardWidgetState extends State<SinglePostCardWidget> {
                 },
                 child: Text(
                   "View all ${widget.post.totalComments} comments",
-                  style: const TextStyle(color: darkGreyColor),
+                  style: const TextStyle(color: AppColors.darkGreyColor),
                 ),
               )),
           sizeVer(8.h),
           Text(
             DateFormat("dd/MMM/yyy").format(widget.post.createAt!.toDate()),
-            style: const TextStyle(color: darkGreyColor),
+            style: const TextStyle(color: AppColors.darkGreyColor),
           ),
         ],
       ),

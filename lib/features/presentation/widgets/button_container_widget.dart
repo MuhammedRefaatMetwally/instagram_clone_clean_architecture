@@ -24,7 +24,7 @@ class ButtonContainerWidget extends StatelessWidget {
         child: Center(
           child: Text(
             "$text",
-            style:  TextStyle(color: primaryColor, fontWeight: FontWeight.w600,fontSize: 18.sp),
+            style:  TextStyle(color: AppColors.primaryColor, fontWeight: FontWeight.w600,fontSize: 18.sp),
           ),
         ),
       ),

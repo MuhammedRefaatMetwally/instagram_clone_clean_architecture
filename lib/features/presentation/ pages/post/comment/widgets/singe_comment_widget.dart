@@ -1,4 +1,5 @@
  import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,10 +11,13 @@ import 'package:intl/intl.dart';
 import 'package:insta_clone_clean_arc/injection_container.dart' as di;
 import 'package:uuid/uuid.dart';
 import '../../../../../../core/constants/color.dart';
+import '../../../../../../core/constants/constans.dart';
+import '../../../../../data/models/bottom_modal_sheet/bottom_modal_sheet_model.dart';
 import '../../../../../domain/entity/reply/reply_entity.dart';
 import '../../../../../domain/usecases/firebase_usecases/user/get_current_uid_usecase.dart';
 import '../../../../cubit/reply/reply_cubit.dart';
 import '../../../../widgets/form_container_widget.dart';
+import '../../../../widgets/open_bottom_modal_sheet.dart';
 
 class SingleCommentWidget extends StatefulWidget {
 final  CommentEntity comment;
@@ -75,14 +79,14 @@ class _SingleCommentWidgetState extends State<SingleCommentWidget> {
                          style:  TextStyle(
                              fontWeight: FontWeight.bold,
                              fontSize: 16.sp,
-                             color: primaryColor),
+                             color: AppColors.primaryColor),
                        ),
                        GestureDetector(
                          onTap: widget.onLikeClickListener,
                          child: Icon(
                            widget.comment.likes!.contains(_currentUid)? Icons.favorite:Icons.favorite_outline,
                            size: 20,
-                           color: widget.comment.likes!.contains(_currentUid)? Colors.red : darkGreyColor,
+                           color: widget.comment.likes!.contains(_currentUid)? Colors.red : AppColors.darkGreyColor,
                          ),
                        )
                      ],
@@ -90,14 +94,14 @@ class _SingleCommentWidgetState extends State<SingleCommentWidget> {
                    sizeVer(4.h),
                     Text(
                      "${widget.comment.description}",
-                        style: const TextStyle(color: primaryColor),
+                        style: const TextStyle(color: AppColors.primaryColor),
                    ),
                    sizeVer(4.h),
                    Row(
                      children: [
                        Text(
                          DateFormat("dd/MMM/yyy").format(widget.comment.createAt!.toDate()),
-                         style: const TextStyle(color: darkGreyColor),
+                         style: const TextStyle(color: AppColors.darkGreyColor),
                        ),
                        sizeHor(16.w),
                        GestureDetector(
@@ -108,7 +112,7 @@ class _SingleCommentWidgetState extends State<SingleCommentWidget> {
                          },
                          child:  Text(
                            "Replay",
-                           style: TextStyle(color: darkGreyColor,fontSize: 12.sp),
+                           style: TextStyle(color: AppColors.darkGreyColor,fontSize: 12.sp),
                          ),
                        ),
                        sizeHor(16.w),
@@ -122,7 +126,7 @@ class _SingleCommentWidgetState extends State<SingleCommentWidget> {
                           },
                           child: Text(
                            "View Replays",
-                           style: TextStyle(color: darkGreyColor,fontSize: 12.sp),
+                           style: TextStyle(color: AppColors.darkGreyColor,fontSize: 12.sp),
                        ),
                         ),
                      ],
@@ -133,14 +137,20 @@ class _SingleCommentWidgetState extends State<SingleCommentWidget> {
                          final replies = replyState.replies.where((element) => element.commentId == widget.comment.commentId).toList(); //3shan mykrrsh el reply le kol el comments;
                          return ListView.builder(shrinkWrap: true, physics: const ScrollPhysics(), itemCount: replies.length, itemBuilder: (context, index) {
                            return SingleReplyWidget(reply: replies[index],
-                             onLongPressListener: () {
-                               _openBottomModalSheet(context: context, replay: replies[index]);
-                             },
-                             onLikeClickListener: () {
-                               _likeReply(reply: replies[index]);
-                             },
+                             onLongPressListener: ()=>
+                               OpenBottomModalSheet.show(options: BottomModalSheetModel(
+                                 firstOption: "Delete Reply",
+                                 secondOption: "Update Reply",
+                                 context: context,
+                                 onDeleteTap:(){
+                                   if (kDebugMode) {
+                                     print("replied");
+                                   }
+                                   Navigator.pop(context);
+                                   _deleteReply(reply: replies[index]);
+                                 }),),
+                             onLikeClickListener: () => _likeReply(reply: replies[index]),
                            );
-
                          });
 
                        }
@@ -155,7 +165,7 @@ class _SingleCommentWidgetState extends State<SingleCommentWidget> {
                        sizeVer(8.h),
                         GestureDetector(onTap: (){
                           _createReplay();
-                        },child: const Text("Post",style: TextStyle(color: blueColor),)),
+                        },child: const Text("Post",style: TextStyle(color: AppColors.blueColor),)),
                      ],
                    ):const SizedBox(),
                  ],
@@ -195,7 +205,7 @@ class _SingleCommentWidgetState extends State<SingleCommentWidget> {
          builder: (context) {
            return Container(
              height: 150.h,
-             decoration: BoxDecoration(color: backGroundColor.withOpacity(.8)),
+             decoration: BoxDecoration(color: AppColors.backGroundColor.withOpacity(.8)),
              child: SingleChildScrollView(
                child: Container(
                  margin:  EdgeInsets.symmetric(vertical: 10.h),
@@ -207,7 +217,7 @@ class _SingleCommentWidgetState extends State<SingleCommentWidget> {
                        child:  Text(
                          "More Options",
                          style: TextStyle(
-                             fontWeight: FontWeight.bold, fontSize: 18.sp, color: primaryColor),
+                             fontWeight: FontWeight.bold, fontSize: 18.sp, color: AppColors.primaryColor),
                        ),
                      ),
                       SizedBox(
@@ -215,7 +225,7 @@ class _SingleCommentWidgetState extends State<SingleCommentWidget> {
                      ),
                      const Divider(
                        thickness: 1,
-                       color: secondaryColor,
+                       color: AppColors.secondaryColor,
                      ),
                       SizedBox(
                        height: 8.h,
@@ -229,26 +239,26 @@ class _SingleCommentWidgetState extends State<SingleCommentWidget> {
                          child:  Text(
                            "Delete Replay",
                            style: TextStyle(
-                               fontWeight: FontWeight.w500, fontSize: 16.sp, color: primaryColor),
+                               fontWeight: FontWeight.w500, fontSize: 16.sp, color: AppColors.primaryColor),
                          ),
                        ),
                      ),
                      sizeVer(8.h),
                      const Divider(
                        thickness: 1,
-                       color: secondaryColor,
+                       color: AppColors.secondaryColor,
                      ),
                      sizeVer(8.h),
                      Padding(
                        padding:  EdgeInsets.only(left: 8.0.w),
                        child: GestureDetector(
                          onTap: () {
-                           Navigator.pushNamed(context, PageConst.updateReplayPage, arguments: replay);
+
                          },
                          child:Text(
                            "Update Replay",
                            style: TextStyle(
-                               fontWeight: FontWeight.w500, fontSize: 16.sp, color: primaryColor),
+                               fontWeight: FontWeight.w500, fontSize: 16.sp, color: AppColors.primaryColor),
                          ),
                        ),
                      ),

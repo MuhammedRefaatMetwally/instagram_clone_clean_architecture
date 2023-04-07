@@ -1,16 +1,14 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insta_clone_clean_arc/features/presentation/cubit/reply/reply_cubit.dart';
 import 'package:insta_clone_clean_arc/features/presentation/widgets/open_bottom_modal_sheet.dart';
-import 'package:uuid/uuid.dart';
 import 'package:insta_clone_clean_arc/injection_container.dart' as di;
 import '../../../../../../core/constants/color.dart';
+import '../../../../../../core/constants/constans.dart';
 import '../../../../../data/models/bottom_modal_sheet/bottom_modal_sheet_model.dart';
 import '../../../../../domain/entity/app_entity.dart';
 import '../../../../../domain/entity/comments/comment_entity.dart';
-import '../../../../../domain/entity/user/user_entity.dart';
 import '../../../../cubit/comment/comment_cubit.dart';
 import '../../../../cubit/posts/get_single_post/get_single_post_cubit.dart';
 import '../../../../cubit/user/get_single_user/get_single_user_cubit.dart';
@@ -54,9 +52,9 @@ class _CommentMainWidgetState extends State<CommentMainWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: AppColors.backGroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
+        backgroundColor: AppColors.backGroundColor,
         title: const Text("Comments"),
       ),
       body: BlocBuilder<GetSingleUserCubit, GetSingleUserState>(
@@ -98,21 +96,21 @@ class _CommentMainWidgetState extends State<CommentMainWidget> {
                                         style: TextStyle(
                                             fontSize: 16.sp,
                                             fontWeight: FontWeight.bold,
-                                            color: primaryColor),
+                                            color: AppColors.primaryColor),
                                       ),
                                     ],
                                   ),
                                   sizeVer(8.h),
                                   Text(
                                     "${singlePost.description}",
-                                    style: const TextStyle(color: primaryColor),
+                                    style: const TextStyle(color: AppColors.primaryColor),
                                   ),
                                 ],
                               ),
                             ),
                             sizeVer(8.h),
                             const Divider(
-                              color: secondaryColor,
+                              color: AppColors.secondaryColor,
                             ),
                             sizeVer(8.h),
                             Expanded(

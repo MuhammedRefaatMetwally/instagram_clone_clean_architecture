@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insta_clone_clean_arc/features/domain/entity/app_entity.dart';
 import 'package:uuid/uuid.dart';
-
 import '../../../../../../core/constants/color.dart';
+import '../../../../../../core/constants/constans.dart';
 import '../../../../../domain/entity/comments/comment_entity.dart';
 import '../../../../../domain/entity/user/user_entity.dart';
 import '../../../../cubit/comment/comment_cubit.dart';
@@ -44,11 +44,11 @@ class _CommentSectionWidgetState extends State<CommentSectionWidget> {
               Expanded(
                   child: TextFormField(
                     controller: widget.descriptionController,
-                    style: const TextStyle(color: primaryColor),
+                    style: const TextStyle(color: AppColors.primaryColor),
                     decoration: const InputDecoration(
                         border: InputBorder.none,
                         hintText: "Post your comment...",
-                        hintStyle: TextStyle(color: secondaryColor)),
+                        hintStyle: TextStyle(color: AppColors.secondaryColor)),
                   )),
               GestureDetector(
                   onTap: () {
@@ -56,7 +56,7 @@ class _CommentSectionWidgetState extends State<CommentSectionWidget> {
                   },
                   child: Text(
                     "Post",
-                    style: TextStyle(fontSize: 16.sp, color: blueColor),
+                    style: TextStyle(fontSize: 16.sp, color: AppColors.blueColor),
                   ))
             ],
           ),

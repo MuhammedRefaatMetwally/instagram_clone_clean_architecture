@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:insta_clone_clean_arc/injection_container.dart' as di;
 import '../../../../../core/constants/color.dart';
+import '../../../../../core/constants/constans.dart';
 import '../../../../domain/entity/posts/post_entity.dart';
 import '../../../../domain/usecases/firebase_usecases/storage/uplode_image_to_usecase.dart';
 import '../../../cubit/posts/posts_cubit.dart';
@@ -60,9 +61,9 @@ class _UpdatePostMainWidgetState extends State<UpdatePostMainWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: AppColors.backGroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
+        backgroundColor: AppColors.backGroundColor,
         title: const Text("Edit Post"),
         actions: [
           Padding(
@@ -77,7 +78,7 @@ class _UpdatePostMainWidgetState extends State<UpdatePostMainWidget> {
                 },
                 child: const Icon(
                   Icons.done,
-                  color: blueColor,
+                  color: AppColors.blueColor,
                   size: 28,
                 )),
           )
@@ -100,7 +101,7 @@ class _UpdatePostMainWidgetState extends State<UpdatePostMainWidget> {
               Text(
                 "${widget.post.username}",
                 style: TextStyle(
-                    color: primaryColor,
+                    color: AppColors.primaryColor,
                     fontSize: 16.sp,
                     fontWeight: FontWeight.bold),
               ),
@@ -126,7 +127,7 @@ class _UpdatePostMainWidgetState extends State<UpdatePostMainWidget> {
                             borderRadius: BorderRadius.circular(16.r)),
                         child: const Icon(
                           Icons.edit,
-                          color: blueColor,
+                          color: AppColors.blueColor,
                         ),
                       ),
                     ),

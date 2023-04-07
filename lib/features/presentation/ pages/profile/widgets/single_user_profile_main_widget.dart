@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insta_clone_clean_arc/features/domain/usecases/firebase_usecases/user/get_current_uid_usecase.dart';
 import 'package:insta_clone_clean_arc/injection_container.dart' as di;
 import '../../../../../core/constants/color.dart';
+import '../../../../../core/constants/constans.dart';
+import '../../../../../core/constants/page_constants.dart';
 import '../../../../domain/entity/posts/post_entity.dart';
 import '../../../../domain/entity/user/user_entity.dart';
 import '../../../cubit/posts/posts_cubit.dart';
@@ -45,11 +47,11 @@ class _SingleUserProfileMainWidgetState extends State<SingleUserProfileMainWidge
         if (userState is GetSingleOtherUserLoaded) {
           final singleUser = userState.otherUser;
           return Scaffold(
-              backgroundColor: backGroundColor,
+              backgroundColor: AppColors.backGroundColor,
               appBar: AppBar(
-                backgroundColor: backGroundColor,
+                backgroundColor: AppColors.backGroundColor,
                 title: Text("${singleUser.username}",
-                  style: const TextStyle(color: primaryColor),),
+                  style: const TextStyle(color: AppColors.primaryColor),),
                 actions: [
                   _currentUid == singleUser.uid ? Padding(
                     padding:  EdgeInsets.only(right: 8.0.w),
@@ -59,7 +61,7 @@ class _SingleUserProfileMainWidgetState extends State<SingleUserProfileMainWidge
                             firstOption: "Delete Post",
                             secondOption: "Update Post",
                             context: context,), currentUser: singleUser, post: PostEntity(),);*/
-                        }, child: const Icon(Icons.menu, color: primaryColor,)),
+                        }, child: const Icon(Icons.menu, color: AppColors.primaryColor,)),
                   ) : Container()
                 ],
               ),
@@ -87,11 +89,11 @@ class _SingleUserProfileMainWidgetState extends State<SingleUserProfileMainWidge
                               Column(
                                 children: [
                                   Text("${singleUser.totalPosts}",
-                                    style: const TextStyle(color: primaryColor,
+                                    style: const TextStyle(color: AppColors.primaryColor,
                                         fontWeight: FontWeight.bold),),
                                   sizeVer(8.h),
                                   const Text("Posts",
-                                    style: TextStyle(color: primaryColor),)
+                                    style: TextStyle(color: AppColors.primaryColor),)
                                 ],
                               ),
                               sizeHor(24.w),
@@ -104,11 +106,11 @@ class _SingleUserProfileMainWidgetState extends State<SingleUserProfileMainWidge
                                 child: Column(
                                   children: [
                                     Text("${singleUser.totalFollowers}",
-                                      style: const TextStyle(color: primaryColor,
+                                      style: const TextStyle(color: AppColors.primaryColor,
                                           fontWeight: FontWeight.bold),),
                                     sizeVer(8.h),
                                     const Text("Followers",
-                                      style: TextStyle(color: primaryColor),)
+                                      style: TextStyle(color: AppColors.primaryColor),)
                                   ],
                                 ),
                               ),
@@ -122,11 +124,11 @@ class _SingleUserProfileMainWidgetState extends State<SingleUserProfileMainWidge
                                 child: Column(
                                   children: [
                                     Text("${singleUser.totalFollowing}",
-                                      style: const TextStyle(color: primaryColor,
+                                      style: const TextStyle(color: AppColors.primaryColor,
                                           fontWeight: FontWeight.bold),),
                                     sizeVer(8.h),
                                     const Text("Following",
-                                      style: TextStyle(color: primaryColor),)
+                                      style: TextStyle(color: AppColors.primaryColor),)
                                   ],
                                 ),
                               )
@@ -138,10 +140,10 @@ class _SingleUserProfileMainWidgetState extends State<SingleUserProfileMainWidge
                       Text("${singleUser.name == ""
                           ? singleUser.username
                           : singleUser.name}", style: const TextStyle(
-                          color: primaryColor, fontWeight: FontWeight.bold),),
+                          color: AppColors.primaryColor, fontWeight: FontWeight.bold),),
                       sizeVer(8.h),
                       Text("${singleUser.bio}",
-                        style: const TextStyle(color: primaryColor),),
+                        style: const TextStyle(color: AppColors.primaryColor),),
                       sizeVer(8.h),
                       _currentUid == singleUser.uid
                           ? Container()
@@ -150,8 +152,8 @@ class _SingleUserProfileMainWidgetState extends State<SingleUserProfileMainWidge
                             ? "UnFollow"
                             : "Follow",
                         color: singleUser.followers!.contains(_currentUid)
-                            ? secondaryColor.withOpacity(.4)
-                            : blueColor,
+                            ? AppColors.secondaryColor.withOpacity(.4)
+                            : AppColors.blueColor,
                         onTapListener: () {
                           BlocProvider.of<UserCubit>(context)
                               .followUnFollowUser(

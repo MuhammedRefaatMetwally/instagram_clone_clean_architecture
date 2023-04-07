@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insta_clone_clean_arc/features/presentation/%20pages/search/widget/search_widget.dart';
 import '../../../../../core/constants/color.dart';
+import '../../../../../core/constants/constans.dart';
+import '../../../../../core/constants/page_constants.dart';
 import '../../../../domain/entity/posts/post_entity.dart';
 import '../../../../domain/entity/user/user_entity.dart';
 import '../../../cubit/posts/posts_cubit.dart';
@@ -42,7 +44,7 @@ class _SearchMainWidgetState extends State<SearchMainWidget> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: backGroundColor,
+        backgroundColor: AppColors.backGroundColor,
         body: BlocBuilder<UserCubit, UserState>(
           builder: (context, userState) {
             if (userState is UserLoaded) {
@@ -80,7 +82,7 @@ class _SearchMainWidgetState extends State<SearchMainWidget> {
                                 ),
                               ),
                               sizeHor(8.w),
-                              Text("${filterAllUsers[index].username}", style:  TextStyle(color: primaryColor, fontSize: 16.sp, fontWeight: FontWeight.w600),)
+                              Text("${filterAllUsers[index].username}", style:  TextStyle(color: AppColors.primaryColor, fontSize: 16.sp, fontWeight: FontWeight.w600),)
                             ],
                           ),
                         );

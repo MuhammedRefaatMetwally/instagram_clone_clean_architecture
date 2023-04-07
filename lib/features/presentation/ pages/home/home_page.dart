@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:insta_clone_clean_arc/features/presentation/%20pages/home/widgets/no_post_widget.dart';
 import 'package:insta_clone_clean_arc/features/presentation/%20pages/home/widgets/single_post_card_widget.dart';
 import '../../../../core/constants/color.dart';
+import '../../../../core/constants/constans.dart';
 import '../../../domain/entity/posts/post_entity.dart';
 import '../../cubit/posts/posts_cubit.dart';
 import 'package:insta_clone_clean_arc/injection_container.dart' as di;
@@ -15,14 +16,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: AppColors.backGroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
-        title: SvgPicture.asset("assets/ic_instagram.svg", color: primaryColor, height: 32,),
+        backgroundColor: AppColors.backGroundColor,
+        title: SvgPicture.asset("assets/ic_instagram.svg", color: AppColors.primaryColor, height: 32,),
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 10.0),
-            child: Icon(MaterialCommunityIcons.facebook_messenger, color: primaryColor,),
+            child: Icon(MaterialCommunityIcons.facebook_messenger, color:AppColors.primaryColor,),
           )
         ],
       ),

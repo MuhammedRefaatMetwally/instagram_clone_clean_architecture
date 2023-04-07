@@ -31,12 +31,12 @@ class _ProfileMainWidgetState extends State<ProfileMainWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: backGroundColor,
+        backgroundColor: AppColors.backGroundColor,
         appBar: AppBar(
-          backgroundColor: backGroundColor,
+          backgroundColor: AppColors.backGroundColor,
           title: Text(
             "${widget.currentUser.username}",
-            style: const TextStyle(color: primaryColor),
+            style: const TextStyle(color: AppColors.primaryColor),
           ),
           actions: [
             Padding(
@@ -50,7 +50,7 @@ class _ProfileMainWidgetState extends State<ProfileMainWidget> {
                   },
                   child: const Icon(
                     Icons.menu,
-                    color: primaryColor,
+                    color: AppColors.primaryColor,
                   )),
             )
           ],

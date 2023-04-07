@@ -16,6 +16,7 @@ import 'package:insta_clone_clean_arc/features/presentation/%20pages/profile/edi
 import 'package:insta_clone_clean_arc/features/presentation/%20pages/profile/following_page.dart';
 import 'package:insta_clone_clean_arc/features/presentation/%20pages/profile/single_user_profile_page.dart';
 import 'core/constants/color.dart';
+import 'core/constants/page_constants.dart';
 import 'features/presentation/ pages/profile/followers_page.dart';
 
 class OnGenerateRoute {

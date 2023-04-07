@@ -53,23 +53,25 @@ class _MainScreenState extends State<MainScreen> {
         if (getSingleUserState is GetSingleUserLoaded) {
           final currentUser = getSingleUserState.user;
           return Scaffold(
-            backgroundColor: backGroundColor,
+            backgroundColor: AppColors.backGroundColor,
             bottomNavigationBar: CupertinoTabBar(
-              backgroundColor: backGroundColor,
+              backgroundColor: AppColors.backGroundColor,
               items: const [
                 BottomNavigationBarItem(
                     icon: Icon(MaterialCommunityIcons.home_variant,
-                        color: primaryColor),
+                        color: AppColors.primaryColor),
                     label: ""),
                 BottomNavigationBarItem(
-                    icon: Icon(Ionicons.md_search, color: primaryColor),
+                    icon:
+                        Icon(Ionicons.md_search, color: AppColors.primaryColor),
                     label: ""),
                 BottomNavigationBarItem(
-                    icon: Icon(Ionicons.md_add_circle, color: primaryColor),
+                    icon: Icon(Ionicons.md_add_circle,
+                        color: AppColors.primaryColor),
                     label: ""),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.account_circle_outlined,
-                        color: primaryColor),
+                        color: AppColors.primaryColor),
                     label: ""),
               ],
               onTap: navigationTapped,
@@ -81,7 +83,9 @@ class _MainScreenState extends State<MainScreen> {
                 const HomePage(),
                 const SearchPage(),
                 UploadPostPage(currentUser: currentUser),
-                ProfilePage(currentUser: currentUser,),
+                ProfilePage(
+                  currentUser: currentUser,
+                ),
               ],
             ),
           );

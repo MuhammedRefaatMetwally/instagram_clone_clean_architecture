@@ -13,6 +13,8 @@ import 'package:insta_clone_clean_arc/features/presentation/widgets/profile_widg
 import 'package:uuid/uuid.dart';
 import 'package:insta_clone_clean_arc/injection_container.dart' as di;
 import '../../../../../core/constants/color.dart';
+import '../../../../../core/constants/constans.dart';
+import '../../../../../core/constants/page_constants.dart';
 import '../../profile/widgets/profile_form_widgets.dart';
 
 class UploadPostMainWidget extends StatefulWidget {
@@ -57,9 +59,9 @@ class _UploadPostMainWidgetState extends State<UploadPostMainWidget> {
     return _image == null
         ? PostUploadWidget(onSelectedImage: selectedImage,)
         : Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: AppColors.backGroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
+        backgroundColor: AppColors.backGroundColor,
         leading: GestureDetector(
           onTap: () => setState(() {
             _image = null;

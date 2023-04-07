@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../core/constants/color.dart';
+import '../../../../../core/constants/constans.dart';
+import '../../../../../core/constants/page_constants.dart';
 import '../../../../domain/entity/user/user_entity.dart';
 import '../../../cubit/posts/posts_cubit.dart';
 import '../../../widgets/profile_widget.dart';
@@ -36,12 +36,12 @@ class ProfileMainBodyWidget extends StatelessWidget {
                       children: [
                         Text(
                           "${currentUser.totalPosts}",
-                          style: const TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
+                          style: const TextStyle(color: AppColors.primaryColor, fontWeight: FontWeight.bold),
                         ),
                         sizeVer(8.h),
                         const Text(
                           "Posts",
-                          style: TextStyle(color: primaryColor),
+                          style: TextStyle(color: AppColors.primaryColor),
                         )
                       ],
                     ),
@@ -54,12 +54,12 @@ class ProfileMainBodyWidget extends StatelessWidget {
                         children: [
                           Text(
                             "${currentUser.totalFollowers}",
-                            style: const TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
+                            style: const TextStyle(color: AppColors.primaryColor, fontWeight: FontWeight.bold),
                           ),
                           sizeVer(8.h),
                           const Text(
                             "Followers",
-                            style: TextStyle(color: primaryColor),
+                            style: TextStyle(color: AppColors.primaryColor),
                           )
                         ],
                       ),
@@ -73,12 +73,12 @@ class ProfileMainBodyWidget extends StatelessWidget {
                         children: [
                           Text(
                             "${currentUser.totalFollowing}",
-                            style: const TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
+                            style: const TextStyle(color: AppColors.primaryColor, fontWeight: FontWeight.bold),
                           ),
                           sizeVer(8.h),
                           const Text(
                             "Following",
-                            style: TextStyle(color: primaryColor),
+                            style: TextStyle(color: AppColors.primaryColor),
                           )
                         ],
                       ),
@@ -90,12 +90,12 @@ class ProfileMainBodyWidget extends StatelessWidget {
             sizeVer(8.h),
             Text(
               "${currentUser.name == "" ?currentUser.username : currentUser.name}",
-              style: const TextStyle(color: primaryColor, fontWeight: FontWeight.bold),
+              style: const TextStyle(color: AppColors.primaryColor, fontWeight: FontWeight.bold),
             ),
             sizeVer(8.h),
             Text(
               "${currentUser.bio}",
-              style: const TextStyle(color: primaryColor),
+              style: const TextStyle(color: AppColors.primaryColor),
             ),
             sizeVer(8.h),
             BlocBuilder<PostsCubit, PostsState>(

@@ -7,6 +7,8 @@ import 'package:insta_clone_clean_arc/features/domain/usecases/firebase_usecases
 import "package:insta_clone_clean_arc/injection_container.dart" as di;
 import 'package:intl/intl.dart';
 import '../../../../../core/constants/color.dart';
+import '../../../../../core/constants/constans.dart';
+import '../../../../../core/constants/page_constants.dart';
 import '../../../../data/models/bottom_modal_sheet/bottom_modal_sheet_model.dart';
 import '../../../../domain/entity/app_entity.dart';
 import '../../../../domain/entity/posts/post_entity.dart';
@@ -48,10 +50,10 @@ class _PostDetailMainWidgetState extends State<PostDetailMainWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: backGroundColor,
+        backgroundColor: AppColors.backGroundColor,
         title: const Text("Post Detail"),
       ),
-      backgroundColor: backGroundColor,
+      backgroundColor: AppColors.backGroundColor,
       body: BlocBuilder<GetSinglePostCubit, GetSinglePostState>(
         builder: (context, getSinglePostState) {
           if (getSinglePostState is GetSinglePostLoaded) {
@@ -79,7 +81,7 @@ class _PostDetailMainWidgetState extends State<PostDetailMainWidget> {
                           Text(
                             "${singlePost.username}",
                             style: const TextStyle(
-                                color: primaryColor,
+                                color: AppColors.primaryColor,
                                 fontWeight: FontWeight.bold),
                           )
                         ],
@@ -101,7 +103,7 @@ class _PostDetailMainWidgetState extends State<PostDetailMainWidget> {
                               },
                               child: const Icon(
                                 Icons.more_vert,
-                                color: primaryColor,
+                                color: AppColors.primaryColor,
                               ))
                           : const SizedBox()
                     ],
@@ -157,7 +159,7 @@ class _PostDetailMainWidgetState extends State<PostDetailMainWidget> {
                                     : Icons.favorite_outline,
                                 color: singlePost.likes!.contains(_currentUid)
                                     ? Colors.red
-                                    : primaryColor,
+                                    : AppColors.primaryColor,
                               )),
                           sizeHor(8.w),
                           GestureDetector(
@@ -170,18 +172,18 @@ class _PostDetailMainWidgetState extends State<PostDetailMainWidget> {
                               },
                               child: const Icon(
                                 Feather.message_circle,
-                                color: primaryColor,
+                                color: AppColors.primaryColor,
                               )),
                           sizeHor(8.h),
                           const Icon(
                             Feather.send,
-                            color: primaryColor,
+                            color: AppColors.primaryColor,
                           ),
                         ],
                       ),
                       const Icon(
                         Icons.bookmark_border,
-                        color: primaryColor,
+                        color: AppColors.primaryColor,
                       )
                     ],
                   ),
@@ -189,7 +191,7 @@ class _PostDetailMainWidgetState extends State<PostDetailMainWidget> {
                   Text(
                     "${singlePost.totalLikes} likes",
                     style: const TextStyle(
-                        color: primaryColor, fontWeight: FontWeight.bold),
+                        color: AppColors.primaryColor, fontWeight: FontWeight.bold),
                   ),
                   sizeVer(8.h),
                   Row(
@@ -197,12 +199,12 @@ class _PostDetailMainWidgetState extends State<PostDetailMainWidget> {
                       Text(
                         "${singlePost.username}",
                         style: const TextStyle(
-                            color: primaryColor, fontWeight: FontWeight.bold),
+                            color: AppColors.primaryColor, fontWeight: FontWeight.bold),
                       ),
                       sizeHor(8.w),
                       Text(
                         "${singlePost.description}",
-                        style: const TextStyle(color: primaryColor),
+                        style: const TextStyle(color: AppColors.primaryColor),
                       ),
                     ],
                   ),
@@ -215,13 +217,13 @@ class _PostDetailMainWidgetState extends State<PostDetailMainWidget> {
                       },
                       child: Text(
                         "View all ${singlePost.totalComments} comments",
-                        style: const TextStyle(color: darkGreyColor),
+                        style: const TextStyle(color: AppColors.darkGreyColor),
                       )),
                   sizeVer(8.h),
                   Text(
                     DateFormat("dd/MMM/yyy")
                         .format(singlePost.createAt!.toDate()),
-                    style: const TextStyle(color: darkGreyColor),
+                    style: const TextStyle(color: AppColors.darkGreyColor),
                   ),
                 ],
               ),

@@ -9,7 +9,7 @@ class PostUploadWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: AppColors.backGroundColor,
       body: Center(
         child: GestureDetector(
           onTap: onSelectedImage,
@@ -17,13 +17,13 @@ class PostUploadWidget extends StatelessWidget {
             width: 156.w,
             height: 156.h,
             decoration: BoxDecoration(
-              color: secondaryColor.withOpacity(.3),
+              color: AppColors.secondaryColor.withOpacity(.3),
               shape: BoxShape.circle,
             ),
             child: const Center(
               child: Icon(
                 Icons.upload,
-                color: primaryColor,
+                color: AppColors.primaryColor,
                 size: 40,
               ),
             ),

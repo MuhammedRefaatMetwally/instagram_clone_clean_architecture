@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -10,8 +9,8 @@ import 'package:insta_clone_clean_arc/features/domain/entity/posts/post_entity.d
 import 'package:insta_clone_clean_arc/features/domain/entity/reply/reply_entity.dart';
 import 'package:insta_clone_clean_arc/features/domain/entity/user/user_entity.dart';
 import 'package:uuid/uuid.dart';
-
-import '../../../../core/constants/color.dart';
+import '../../../../core/constants/constans.dart';
+import '../../../../core/constants/firebase_constans.dart';
 import '../../models/comment/commnet_model.dart';
 import '../../models/posts/post_model.dart';
 import '../../models/reply/reply_model.dart';

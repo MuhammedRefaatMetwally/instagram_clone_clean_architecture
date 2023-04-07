@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/constants/color.dart';
+import '../../../../../../core/constants/constans.dart';
 import '../../../../../domain/entity/comments/comment_entity.dart';
 import '../../../../cubit/comment/comment_cubit.dart';
 import '../../../../widgets/button_container_widget.dart';
@@ -32,9 +33,9 @@ class _EditCommentMainWidgetState extends State<EditCommentMainWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: AppColors.backGroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
+        backgroundColor: AppColors.backGroundColor,
         title: const Text("Edit Comment"),
       ),
       body: Padding(
@@ -47,7 +48,7 @@ class _EditCommentMainWidgetState extends State<EditCommentMainWidget> {
             ),
             sizeVer(8.h),
             ButtonContainerWidget(
-              color: blueColor,
+              color: AppColors.blueColor,
               text: "Save Changes",
               onTapListener: () {
                 _editComment();

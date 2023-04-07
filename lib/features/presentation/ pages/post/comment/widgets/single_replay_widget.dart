@@ -4,6 +4,7 @@ import 'package:insta_clone_clean_arc/features/domain/usecases/firebase_usecases
 import 'package:insta_clone_clean_arc/injection_container.dart' as di;
 import 'package:intl/intl.dart';
 import '../../../../../../core/constants/color.dart';
+import '../../../../../../core/constants/constans.dart';
 import '../../../../../domain/entity/reply/reply_entity.dart';
 import '../../../../widgets/profile_widget.dart';
 
@@ -58,7 +59,7 @@ class _SingleReplyWidgetState extends State<SingleReplyWidget> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("${widget.reply.username}", style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: primaryColor),),
+                        Text("${widget.reply.username}", style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: AppColors.primaryColor),),
                         GestureDetector(
                             onTap: widget.onLikeClickListener,
                             child: Icon(
@@ -68,15 +69,15 @@ class _SingleReplyWidgetState extends State<SingleReplyWidget> {
                               size: 20,
                               color: widget.reply.likes!.contains(_currentUid)
                                   ? Colors.red
-                                  : darkGreyColor,
+                                  : AppColors.darkGreyColor,
                             ))                      ],
                     ),
                     sizeVer(4.sp),
-                    Text("${widget.reply.description}", style: const TextStyle(color: primaryColor),),
+                    Text("${widget.reply.description}", style: const TextStyle(color: AppColors.primaryColor),),
                     sizeVer(4.sp),
                     Text(
                       DateFormat("dd/MMM/yyy").format(widget.reply.createAt!.toDate()),
-                      style: const TextStyle(color: darkGreyColor),
+                      style: const TextStyle(color: AppColors.darkGreyColor),
                     ),
                   ],
                 ),

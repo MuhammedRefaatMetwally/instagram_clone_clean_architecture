@@ -9,6 +9,7 @@ import 'package:insta_clone_clean_arc/features/presentation/%20pages/profile/wid
 import 'package:insta_clone_clean_arc/features/presentation/cubit/user/user_cubit.dart';
 import 'package:insta_clone_clean_arc/injection_container.dart' as di;
 import '../../../../core/constants/color.dart';
+import '../../../../core/constants/constans.dart';
 import '../../widgets/profile_widget.dart';
 
 class EditProfilePage extends StatefulWidget {
@@ -54,9 +55,9 @@ _bioController = TextEditingController(text: widget.currentUser.bio);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: AppColors.backGroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
+        backgroundColor: AppColors.backGroundColor,
         leading: GestureDetector(
             onTap: () => Navigator.pop(context),
             child: const Icon(
@@ -71,7 +72,7 @@ _bioController = TextEditingController(text: widget.currentUser.bio);
               onTap: _updateUserProfileData,
               child: const Icon(
                 Icons.done,
-                color: blueColor,
+                color: AppColors.blueColor,
                 size: 32,
               ),
             ),
@@ -99,7 +100,7 @@ _bioController = TextEditingController(text: widget.currentUser.bio);
                 child:  Text(
                   "Change Profile Picture",
                   style: TextStyle(
-                      color: blueColor, fontSize: 24.sp, fontWeight: FontWeight.w400),
+                      color: AppColors.blueColor, fontSize: 24.sp, fontWeight: FontWeight.w400),
                 ),
               ),
             ),

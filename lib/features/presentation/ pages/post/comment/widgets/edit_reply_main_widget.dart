@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:insta_clone_clean_arc/features/domain/entity/reply/reply_entity.dart';
 import '../../../../../../core/constants/color.dart';
+import '../../../../../../core/constants/constans.dart';
 import '../../../../cubit/reply/reply_cubit.dart';
 import '../../../../widgets/button_container_widget.dart';
 import '../../../profile/widgets/profile_form_widgets.dart';
@@ -30,9 +31,9 @@ class _EditReplyMainWidgetState extends State<EditReplyMainWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backGroundColor,
+      backgroundColor: AppColors.backGroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
+        backgroundColor: AppColors.backGroundColor,
         title: const Text("Edit Reply"),
       ),
       body: Padding(
@@ -45,7 +46,7 @@ class _EditReplyMainWidgetState extends State<EditReplyMainWidget> {
             ),
             sizeVer(8.h),
             ButtonContainerWidget(
-              color: blueColor,
+              color: AppColors.blueColor,
               text: "Save Changes",
               onTapListener: () {
                 _editReply();
