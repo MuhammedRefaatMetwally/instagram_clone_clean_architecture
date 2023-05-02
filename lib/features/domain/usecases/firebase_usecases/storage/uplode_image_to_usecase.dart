@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import '../../../repository/firebase_repository.dart';
 
 class UploadImageToStorageUseCase {

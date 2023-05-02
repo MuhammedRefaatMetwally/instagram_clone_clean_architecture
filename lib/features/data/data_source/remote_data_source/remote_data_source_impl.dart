@@ -71,7 +71,6 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
         following: user.following,
         website: user.website,
         profileUrl: profileUrl,
-        //
         username: user.username,
         totalFollowers: user.totalFollowers,
         followers: user.followers,
@@ -291,25 +290,25 @@ class FirebaseRemoteDataSourceImpl implements FirebaseRemoteDataSource {
     userCollection.doc(user.uid).update(userInformation);
   }
 
-  @override
-  Future<String> uploadImageToStorage(File? file, bool isPost, String childName) async {
-    Reference ref = firebaseStorage
-        .ref()
-        .child(childName)
-        .child(firebaseAuth.currentUser!.uid);
+    @override
+    Future<String> uploadImageToStorage(File? file, bool isPost, String childName) async {
+      Reference ref = firebaseStorage
+          .ref()
+          .child(childName)
+          .child(firebaseAuth.currentUser!.uid);
 
-    if (isPost) {
-      String id = const Uuid().v1();
-      ref = ref.child(id);
+      if (isPost) {
+        String id = const Uuid().v1();
+        ref = ref.child(id);
+      }
+
+      final uploadTask = ref.putFile(file!);
+
+      final imageUrl =
+          (await uploadTask.whenComplete(() => {})).ref.getDownloadURL();
+
+      return await imageUrl;
     }
-
-    final uploadTask = ref.putFile(file!);
-
-    final imageUrl =
-        (await uploadTask.whenComplete(() => {})).ref.getDownloadURL();
-
-    return await imageUrl;
-  }
 
   @override
   Future<void> createPost(PostEntity post) async {
